@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from app.views import PortfolioListAPIVIEW, PortfolioDetailAPIView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-#    path('',)
+    path('portfolios/', PortfolioListAPIVIEW.as_view()),
+    path('portfolios/<int:pk>/', PortfolioDetailAPIView.as_view())
 ]
