@@ -3,11 +3,12 @@
 from app.models import PortfolioProject
 ##############SERIALIZER IMPORTS################
 from app.serializers import ProjectSerializer
-
 #########V1 FRAMEWORK IMPORTS######################
 from rest_framework.views import APIView
 from rest_framework.response import Response
-
+#################### DJANGO IMPORTS ##############
+from django.shortcuts import render
+from django.views.generic import TemplateView
 ############ LIST VIEW / CREATE NEW ################
 
 class PortfolioListAPIVIEW(APIView):
@@ -48,3 +49,7 @@ class PortfolioDetailAPIView(APIView):
         portfolioproject = PortfolioProject.objects.get(id=pk)
         portfolioproject.delete()
         return Response({})
+
+############ INDEX VIEW ######################
+class IndexView(TemplateView):
+    template_name = "index.html"
