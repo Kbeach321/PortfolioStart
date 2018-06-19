@@ -50,6 +50,7 @@ class PortfolioDetailAPIView(APIView):
         portfolioproject.delete()
         return Response({})
 
-############ INDEX VIEW ######################
+############ HTML VIEW ######################
+
 class IndexView(TemplateView):
     template_name = "index.html"
